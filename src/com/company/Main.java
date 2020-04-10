@@ -14,20 +14,26 @@ public class Main {
         //입력
 
 
+        Scanner sc = new Scanner(System.in);
 
         for (int i = 1; i <= 10; i++) {
-            Scanner sc = new Scanner(System.in);
 
-            int num  = sc.nextInt();
+            String dd  = sc.nextLine();
 
-            int[] buildings = new int[num];
+            int num = Integer.parseInt(dd);
+
+            int[] buildings = new int[1000];
             int answer = 0;
 
-            for (int j = 0; j < num; j++) {
-                int height = sc.nextInt();
-                buildings[j] = height;
+          //  String a = sc.nextLine();
 
+            String[] as = sc.nextLine().split(" ");
+
+
+            for (int j = 0; j < num; j++) {
+                buildings[j] = Integer.parseInt(as[j]);
             }
+
 
                 for (int k = 0; k < num; k++) {
                     //k가 array의 인덱스를 초과하면 안되기 때문에 continue;
