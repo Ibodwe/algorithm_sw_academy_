@@ -1,8 +1,10 @@
 package com.company;
 
 
+import javax.print.attribute.HashAttributeSet;
 import java.util.*;
 
+public class Main {
 /*
 *
 * */
@@ -46,18 +48,10 @@ public class Main {
                         int right = Math.max(buildings[k + 1], buildings[k + 2]);
                         int bestHeightBuilding = Math.max(left, right);
 
-                        if (currentHeight - bestHeightBuilding > 0) {
-                            answer += currentHeight - bestHeightBuilding;
 
-                        }
 
-                    }
 
-                }
 
-            System.out.println("# "+i+" "+answer);
-            }
 
-        }
-    }
 
+}
