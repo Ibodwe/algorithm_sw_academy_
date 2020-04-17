@@ -27,6 +27,7 @@ public class SamSung_16236_BackJoob {
         sharkMap[sharkx][sharky] = true;
         int minX = -1;
         int minY = -1;
+        //값 중요하다..!
         int minLength = 99999;
         int distance = 0;
         int count = 0;
