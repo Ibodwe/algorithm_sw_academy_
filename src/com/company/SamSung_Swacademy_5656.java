@@ -1,11 +1,10 @@
 package com.company;
 
 
-import javax.print.attribute.HashAttributeSet;
 import java.util.*;
 
 
-public class Main {
+public class SamSung_Swacademy_5656 {
 
     static ArrayList<Integer> array = new ArrayList<>();
     static int answer = 99999;
@@ -180,9 +179,9 @@ public class Main {
 //                }
 //                System.out.println();
 //            }
-                makePair(W, N, 0);
+            makePair(W, N, 0);
 
-                System.out.println("#"+i+" "+answer);
+            System.out.println("#"+i+" "+answer);
 
         }
     }
