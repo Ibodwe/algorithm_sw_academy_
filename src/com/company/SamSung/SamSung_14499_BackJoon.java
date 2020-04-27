@@ -1,9 +1,9 @@
-package com.company;
+package com.company.SamSung;
 
 
 import java.util.*;
 
-public class Main {
+public class SamSung_14499_BackJoon {
     static Queue<Integer> q;
 
     static int [][] dir = {{0,0},{0,1},{0,-1},{-1,0},{1,0}};
@@ -20,8 +20,8 @@ public class Main {
             q.poll();
             int na = a + dir[v][0];
             int nb = b + dir[v][1];
-         //   System.out.println(a + " " + b);
-        //    System.out.println(na+" " + nb+" " +v );
+            //   System.out.println(a + " " + b);
+            //    System.out.println(na+" " + nb+" " +v );
 
             if(isvalid(na,nb)){
                 switch (v) {
@@ -57,7 +57,7 @@ public class Main {
                         box.di6 =box.di5;
                         box.di5 = temp3;
                         break;
-            }
+                }
 
                 if(map[na][nb]==0){
                     map[na][nb] = box.di6;
@@ -93,8 +93,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-         N = sc.nextInt();
-         M = sc.nextInt();
+        N = sc.nextInt();
+        M = sc.nextInt();
         int x = sc.nextInt();
         int y = sc.nextInt();
         int k = sc.nextInt();
@@ -120,7 +120,7 @@ public class Main {
     }
 
 
-   static class cube {
+    static class cube {
         int di1;
         int di2;
         int di3;
