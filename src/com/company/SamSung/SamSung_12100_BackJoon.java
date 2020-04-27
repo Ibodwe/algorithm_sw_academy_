@@ -1,9 +1,9 @@
-package com.company;
+package com.company.SamSung;
 
 
 import java.util.*;
 
-public class Main {
+public class SamSung_12100_BackJoon {
 
     static int[] an = new int [5];
     static int answer = 0;
@@ -272,9 +272,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 
-       // make(0);
+        // make(0);
 
-         n = sc.nextInt();
+        n = sc.nextInt();
 
         map = new int [n][n];
 
@@ -297,7 +297,7 @@ public class Main {
     }
 
 
-    }
+}
 
 
 

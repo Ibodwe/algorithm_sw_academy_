@@ -1,4 +1,4 @@
-package com.company;
+package com.company.SamSung;
 
 import java.util.ArrayList;
 import java.util.Collections;
