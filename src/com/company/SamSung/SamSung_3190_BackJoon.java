@@ -1,9 +1,9 @@
-package com.company;
+package com.company.SamSung;
 
 
 import java.util.*;
 
-public class Main {
+public class SamSung_3190_BackJoon {
 
     static Queue<Integer> snake = new LinkedList<>();
     static Queue<Integer> time = new LinkedList<>();
@@ -39,7 +39,7 @@ public class Main {
                     int a =   snake.poll();
                     int b =  snake.poll();
 
-                   // System.out.println("poll " + a +" " +b);
+                    // System.out.println("poll " + a +" " +b);
                     checkMap[a][b] = false;
                 }
 
@@ -52,23 +52,23 @@ public class Main {
             }
 
             if(!time.isEmpty())
-            if(curTime==time.peek()){
-                time.poll();
-                String dr = dir.peek();
-                dir.poll();
+                if(curTime==time.peek()){
+                    time.poll();
+                    String dr = dir.peek();
+                    dir.poll();
 
-                if(dr.equals("D")){
-                    System.out.println("D");
-                    d++;
-                }else{
-                    d--;
+                    if(dr.equals("D")){
+                        System.out.println("D");
+                        d++;
+                    }else{
+                        d--;
+                    }
+                    if(d < 0){
+                        d = 3;
+                    }else if(d > 3){
+                        d = 0;
+                    }
                 }
-                if(d < 0){
-                    d = 3;
-                }else if(d > 3){
-                    d = 0;
-                }
-            }
 
             for(int i =0; i<N; i++ ){
                 for(int j =0; j<N; j++){
@@ -94,9 +94,9 @@ public class Main {
         //뱀의 방향 --> Queue
 
         Scanner sc=  new Scanner(System.in);
-         N = Integer.parseInt(sc.nextLine());
+        N = Integer.parseInt(sc.nextLine());
         map = new int [N][N];
-      checkMap = new boolean[N][N];
+        checkMap = new boolean[N][N];
         int K = Integer.parseInt(sc.nextLine());
 
 
@@ -128,7 +128,7 @@ public class Main {
     }
 
 
-    }
+}
 
 
 
