@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-class Main{
+class BackJoon_2468{
 
 
     static int [][] map ;
@@ -15,7 +15,7 @@ class Main{
     static int n ;
     static int [][] dir = {{0,1},{0,-1},{1,0},{-1,0}};
 
-   static public int bfs(int num){
+    static public int bfs(int num){
 
         check = new boolean[n][n];
 //       for(int i =0; i<n; i++){
@@ -27,13 +27,13 @@ class Main{
         int answer = 0;
         Queue<Integer> q = new LinkedList<>();
 
-     //   System.out.println();
+        //   System.out.println();
         for(int i =0; i<n; i++){
             for(int j =0; j<n; j++){
                 if(!check[i][j] && map[i][j] > num){
-                        //i,j 로 시작
+                    //i,j 로 시작
                     answer++;
-                   // System.out.println(i+" " + j );
+                    // System.out.println(i+" " + j );
                     q.add(i);
                     q.add(j);
                     check[i][j] = true;
@@ -52,7 +52,7 @@ class Main{
                                 if(!check[nx2][ny2] && map[nx2][ny2]>num){
                                     q.add(nx2);
                                     q.add(ny2);
-                                //    System.out.println(nx2+" 123123 " +ny2);
+                                    //    System.out.println(nx2+" 123123 " +ny2);
                                     check[nx2][ny2] = true;
                                 }
 
@@ -70,7 +70,7 @@ class Main{
 
         Scanner sc =new Scanner(System.in);
 
-         n =sc.nextInt();
+        n =sc.nextInt();
 
         map = new int [n][n];
         //check = new boolean[n][n];
@@ -80,14 +80,14 @@ class Main{
         for(int i =0; i<n; i++){
             for(int j =0; j<n; j++){
                 int k = sc.nextInt();
-          //      System.out.println(k);
+                //      System.out.println(k);
                 map[i][j] = k ;
                 max = Math.max(k,max);
 
             }
         }
 
-    //    System.out.println(max + " max ");
+        //    System.out.println(max + " max ");
         for(int i =0; i < max; i++){
             int a = bfs(i);
             an = Math.max(an,a);
