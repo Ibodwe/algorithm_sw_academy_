@@ -3,7 +3,7 @@ package com.company;
 
 import java.util.*;
 
-public class Main {
+public class BackJoon_2583 {
 
     static ArrayList<Integer> arr = new ArrayList<>();
     static int m;
@@ -40,7 +40,7 @@ public class Main {
                         q.poll();
                         int y = q.peek();
                         q.poll();
-                   // System.out.println(x+" " + y );
+                        // System.out.println(x+" " + y );
                         for(int k=0; k<4; k++){
                             int nx =  x + dir[k][0];
                             int ny = y + dir[k][1];
@@ -53,20 +53,20 @@ public class Main {
                                     q.add(nx);
                                     q.add(ny);
                                 }
-                                }
-
                             }
 
                         }
-                        arr.add(hap);
 
                     }
-
+                    arr.add(hap);
 
                 }
 
+
             }
+
         }
+    }
 
 
 
@@ -76,8 +76,8 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-         m =sc.nextInt();
-         n = sc.nextInt();
+        m =sc.nextInt();
+        n = sc.nextInt();
         int k = sc.nextInt();
         int [][] map = new int[m][n];
 
