@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 
-public class Main {
+public class BackJoon_7569 {
 
     static Queue<Integer> q;
     static int [][][] map;
@@ -18,8 +18,8 @@ public class Main {
         if(a>=0 && a < h && b>=0 && b < m && c>=0 && c<n ){
             return true;
         }
-    //    System.out.println(h+" " + m +" " + n);
-     //   System.out.println(a+" " +b+ " " +c );
+        //    System.out.println(h+" " + m +" " + n);
+        //   System.out.println(a+" " +b+ " " +c );
 
         return false;
     }
@@ -88,15 +88,15 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-         n = sc.nextInt();
-         m = sc.nextInt();
-         h = sc.nextInt();
+        n = sc.nextInt();
+        m = sc.nextInt();
+        h = sc.nextInt();
 
         map = new int[h][m][n];
         isVisited = new boolean[h][m][n];
 
         q = new LinkedList<>();
-         answer = 0;
+        answer = 0;
         for(int i=0; i<h; i++){
             for(int j =0; j<m;j++){
                 for(int k =0; k<n; k++){
