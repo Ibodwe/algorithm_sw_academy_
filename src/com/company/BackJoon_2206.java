@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 
-public class Main {
+public class BackJoon_2206 {
 
 
     static int[][] map;
@@ -74,8 +74,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         String[] t = sc.nextLine().split(" ");
-         m = Integer.parseInt(t[0]);
-         n = Integer.parseInt(t[1]);
+        m = Integer.parseInt(t[0]);
+        n = Integer.parseInt(t[1]);
         q = new LinkedList<>();
         map = new int[m][n];
         valueMap = new int[m][n];
