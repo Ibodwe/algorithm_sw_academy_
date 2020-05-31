@@ -2,8 +2,27 @@ package com.company;
 
 import java.util.*;
 
+class item implements Comparable<item>{
+    int number;
+    int hammer;
+    int x;
+    int y;
+    public item(int num, int hammer,int x, int y){
+        number = num;
+        this.hammer = hammer;
+        this.x = x;
+        this.y = y;
+    }
 
-public class Main {
+    @Override
+    public int compareTo(item o) {
+        return hammer - o.hammer;
+    }
+
+
+}
+
+public class BackJoon_1261 {
     // 우선순위 Queue를 통해서 hammer 값이 작은거 부터 꺼내면
     // 최소한의 메모리를 사용해서 구현 할 수 있다.
     static int [][] dir = {{0,1},{1,0},{0,-1},{-1,0}};
@@ -23,7 +42,7 @@ public class Main {
             int y = q.peek().y;
             int currentHam =q.peek().hammer;
             vistied[x][y] = true;
-           // System.out.println(x + " " + y + " " + currentHam);
+            // System.out.println(x + " " + y + " " + currentHam);
             q.poll();
 
             if(x==m-1 && y==n-1){
@@ -57,7 +76,7 @@ public class Main {
 
             }
 
-         //   System.out.println();
+            //   System.out.println();
 
 //        for(int i =0; i< m; i++){
 //
@@ -79,11 +98,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         String [] temp = sc.nextLine().split(" ");
-         n = Integer.parseInt(temp[0]);
-         m = Integer.parseInt(temp[1]);
+        n = Integer.parseInt(temp[0]);
+        m = Integer.parseInt(temp[1]);
 
-         map = new item[m][n];
-         vistied = new boolean[m][n];
+        map = new item[m][n];
+        vistied = new boolean[m][n];
 
         //init
         for(int i =0; i< m; i++){
@@ -94,7 +113,7 @@ public class Main {
         }
         map[0][0].hammer =0;
 
-         dfs();
+        dfs();
 
         System.out.println(map[m-1][n-1].hammer);
 
