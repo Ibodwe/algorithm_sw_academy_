@@ -1,8 +1,8 @@
-package com.company;
+package com.company.BackJoon;
 
 import java.util.*;
 
-public class Main2 {
+public class BackJoon_1092 {
 
 
     public static void main(String[] args) {
@@ -41,18 +41,18 @@ public class Main2 {
             while (boxes.size()!=0){
                 int index = n-1;
 
-                    for(int i= boxes.size()-1; i>=0; i--) {
-                            if(index ==-1){
-                                break;
-                            }
-
-                        int target = boxes.get(i);
-                        if(crane[index] >= target) {
-                            boxes.remove(i);
-                            index--;
-                        }
-
+                for(int i= boxes.size()-1; i>=0; i--) {
+                    if(index ==-1){
+                        break;
                     }
+
+                    int target = boxes.get(i);
+                    if(crane[index] >= target) {
+                        boxes.remove(i);
+                        index--;
+                    }
+
+                }
 
                 answer++;
             }
