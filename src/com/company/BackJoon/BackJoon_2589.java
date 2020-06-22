@@ -1,11 +1,11 @@
-package com.company;
+package com.company.BackJoon;
 
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main2 {
+public class BackJoon_2589 {
 
     static int answer = 0;
 
@@ -69,8 +69,8 @@ public class Main2 {
 
         String [] temp = sc.nextLine().split(" ");
 
-         h = Integer.parseInt(temp[0]);
-         w = Integer.parseInt(temp[1]);
+        h = Integer.parseInt(temp[0]);
+        w = Integer.parseInt(temp[1]);
 
         map = new char [h][w];
 
@@ -78,8 +78,8 @@ public class Main2 {
 
         for(int i =0; i<h; i++){
             for(int j=0; j<w; j++){
-                    valueMap[i][j] = 999999;
-           }
+                valueMap[i][j] = 999999;
+            }
         }
 
         for(int i =0; i<h; i++){
@@ -92,7 +92,7 @@ public class Main2 {
         for(int i =0; i<h; i++){
             for(int j =0; j<w; j++){
                 if(map[i][j]=='L'){
-                        dfs(i,j);
+                    dfs(i,j);
                 }
             }
         }
@@ -100,7 +100,7 @@ public class Main2 {
         System.out.println(answer);
 
 
-        }
-
     }
+
+}
 
