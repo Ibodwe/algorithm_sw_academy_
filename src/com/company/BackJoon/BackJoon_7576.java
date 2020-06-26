@@ -1,6 +1,6 @@
 
 
-package com.company;
+package com.company.BackJoon;
 
 
 import java.util.LinkedList;

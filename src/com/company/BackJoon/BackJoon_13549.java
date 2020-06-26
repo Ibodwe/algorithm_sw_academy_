@@ -1,5 +1,5 @@
 
-package com.company;
+package com.company.BackJoon;
 import java.util.*;
 
 public class BackJoon_13549 {

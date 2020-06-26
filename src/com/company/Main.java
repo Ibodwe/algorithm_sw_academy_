@@ -1,132 +1,214 @@
-package com.company;
-
-import java.util.*;
-
-public class Main {
+    package com.company;
 
 
-    static int[][] map;
-    static int[][] valueMap;
-    static int[][] countMap;
+    import java.text.DecimalFormat;
+    import java.util.*;
 
-    static boolean[][] checkMap;
-    static int m;
-    static int n;
-    static Queue<Integer> q;
-    static int [][] dir = {{0,1},{0,-1},{1,0},{-1,0}};
 
-    public static void bfs() {
-        while (!q.isEmpty()){
-            int x = q.peek();
-            q.poll();
-            int y =q.peek();
-            q.poll();
+    public class Main {
 
-            if(x==m-1 && y==n-1){
-                return;
-            }
-            int drill = countMap[x][y];
+        static boolean[][][] number;
+        static ArrayList<ArrayList<Integer>> numMap = new ArrayList<>();
+        static int numberIndex = -1;
+        static int n ;
+        static long answer=0;
+        static int anscount=0;
+        static boolean isAble = false;
+       static public void checkNum(boolean [][] temp, int num ){
+            numberIndex++;
 
-            for(int i =0; i<4; i++){
-                int nx = dir[i][0] + x;
-                int ny = dir[i][1] + y;
+//           for(int i =0; i<5; i++){
+//               for(int j =0; j<3; j++){
+//                   System.out.print(temp[i][j]+" ");
+//               }
+//               System.out.println();
+//           }
 
-                if(nx>=0 && nx<m && ny>=0 && ny < n ){
+            for(int i =0; i<10; i++){
+                boolean isvalide = false;
+                for(int j =0; j<5; j++){
+                    for(int k=0; k<3; k++){
+    //                if(temp[j][k]==true && number[i][j][k]==false){
+    //                    isvalide=true;
+    //                }
 
-                    //countMap을 max값으로 초기화 하여 방문 여부를 판단..!
-                    //이렇게 짜도 되는건 질문에서 nx ny의 값을 물어 봤기 때문
-                    //중복으로 방문하지 않는다면 2차원 map에서는 무조건 최단거리..!
-                    //벽을 한개만 뚫고 중복 없이 갈수 있는지 없는 지를 묻는 문제..!
-
-                    if(drill >= countMap[nx][ny]){
-                        continue;
+                    if(temp[j][k]==false && number[i][j][k]==true){
+                        isvalide= true;
                     }
-
-                    if(map[nx][ny]==0){
-                        q.add(nx);
-                        q.add(ny);
-                        valueMap[nx][ny] = valueMap[x][y]+1;
-                        countMap[nx][ny] = drill;
-
-                    }else{
-                        //어차피 1이 넘으면 추가하면 안되기 때문에..!
-                        if(drill==0){
-                            q.add(nx);
-                            q.add(ny);
-                            countMap[nx][ny] = drill+1;
-                            valueMap[nx][ny] = valueMap[x][y]+1;
-                        }
 
                     }
 
                 }
 
-            }
-
-        }
-
-
-    }
-
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        String[] t = sc.nextLine().split(" ");
-         m = Integer.parseInt(t[0]);
-         n = Integer.parseInt(t[1]);
-        q = new LinkedList<>();
-        map = new int[m][n];
-        valueMap = new int[m][n];
-        checkMap = new boolean[m][n];
-        countMap = new int[m][n];
-
-
-
-        for (int i = 0; i < m; i++) {
-            String temp = sc.nextLine();
-            for (int j = 0; j < n; j++) {
-                int num = temp.charAt(j);
-                map[i][j] = num -48;
-                valueMap[i][j] =999999;
-                countMap[i][j] =999999;
+                if(!isvalide){
+                   // System.out.println(i);
+                    numMap.get(numberIndex).add(i);
+                }
             }
         }
 
 
+        static void calAnswerNum(int currentCount, long totalValue){
 
-        valueMap[0][0] =1;
-        checkMap[0][0] = true;
-        countMap[0][0] = 0;
+           if(currentCount==n){
+               answer+= totalValue;
+               //System.out.println(totalValue);
+               anscount++;
+               return;
+           }
 
-        q.add(0);
-        q.add(0);
+           for(int i =0; i<numMap.get(currentCount).size(); i++){
+               int selectNum = numMap.get(currentCount).get(i);
+             //  System.out.println(selectNum);
+               calAnswerNum(currentCount+1,totalValue*10+selectNum);
+           }
 
-        bfs();
 
-        for (int i = 0; i < m; i++) {
-            System.out.println();
-            for (int j = 0; j < n; j++) {
-                System.out.print(valueMap[i][j] +" ");
+        }
+
+
+        public static void main(String[] args) {
+
+
+            number = new boolean[10][5][3];
+
+            number[0][1][1]=true;
+            number[0][2][1] = true;
+            number[0][3][1] = true;
+
+            number[1][0][0] = true;
+            number[1][0][1] = true;
+            number[1][1][0] = true;
+            number[1][1][1] = true;
+            number[1][2][0] = true;
+            number[1][2][1] = true;
+            number[1][3][0] = true;
+            number[1][3][1] = true;
+            number[1][4][0] = true;
+            number[1][4][1] = true;
+
+            number[2][1][0] = true;
+            number[2][1][1] = true;
+            number[2][3][1] = true;
+            number[2][3][2] = true;
+
+            number[3][1][0] = true;
+            number[3][1][1] = true;
+            number[3][3][0] = true;
+            number[3][3][1] = true;
+
+            number[4][0][1] = true;
+            number[4][1][1] = true;
+            number[4][3][0] = true;
+            number[4][3][1] = true;
+            number[4][4][0] = true;
+            number[4][4][1] = true;
+
+            number[5][1][1] = true;
+            number[5][1][2] = true;
+            number[5][3][0] = true;
+            number[5][3][1] = true;
+
+            number[6][1][1] = true;
+            number[6][1][2] = true;
+            number[6][3][1] = true;
+
+            number[7][1][0] = true;
+            number[7][1][1] = true;
+            number[7][2][0] = true;
+            number[7][2][1] = true;
+            number[7][3][0] = true;
+            number[7][3][1] = true;
+            number[7][4][0] = true;
+            number[7][4][1] = true;
+
+            number[8][1][1] = true;
+            number[8][3][1] = true;
+
+            number[9][1][1] = true;
+            number[9][3][0] = true;
+            number[9][3][1] = true;
+
+            Scanner sc = new Scanner(System.in);
+
+             n  = Integer.parseInt(sc.nextLine());
+
+            int r = 5;
+            int w = n*4-1;
+
+            for(int i =0; i<n; i++){
+                ArrayList<Integer>temp = new ArrayList<>();
+                numMap.add(temp);
             }
-        }
 
-        for (int i = 0; i < m; i++) {
-            System.out.println();
-            for (int j = 0; j < n; j++) {
-                System.out.print(countMap[i][j] +" ");
+
+
+
+            char [][] map = new char[r][w];
+
+            for(int i =0; i<r; i ++){
+                String temp = sc.nextLine();
+                for(int j=0; j<w; j++){
+                    map[i][j] = temp.charAt(j);
+                }
             }
+
+
+            int index = 3;
+            boolean[][] tempMap = new boolean[5][3];
+
+            for(int i=0; i < w; i++){
+                int countNum = 15;
+
+                for(int j =0; j < 5; j++){
+                    int vv = i%4;
+                    if(vv==3){
+                        continue;
+                    }
+                    if(map[j][i] =='.'){
+                        tempMap[j][vv] = true;
+                        countNum--;
+                    }else{
+                        tempMap[j][vv] = false;
+                    }
+                }
+
+                if(i == index-1){
+                    // -> 0~9까지 비교
+                    index += 4;
+                    checkNum(tempMap,countNum);
+
+                }
+
+            }
+
+
+            calAnswerNum(0,0);
+
+            for(int i =0; i<n; i++){
+                if(numMap.get(i).size()==0){
+                    isAble=true;
+                }
+            }
+
+            if(isAble){
+                System.out.println(-1);
+            }else{
+                double aa = (double)answer/(double)anscount;
+
+                DecimalFormat format = new DecimalFormat(".#####");
+                String str = String.format("%.10f",aa);
+                System.out.println(aa);
+
+            }
+
+
+
         }
 
-        if(valueMap[m-1][n-1]==999999){
-            System.out.println(-1);
-        }else{
-            System.out.println(valueMap[m-1][n-1]) ;
+
+
+
+
+
         }
-
-    }
-
-
-
-}
