@@ -1,10 +1,8 @@
 package com.company.SamSung;
 
 
-
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
-import java.util.concurrent.CompletionException;
+
 
 /*
  *
