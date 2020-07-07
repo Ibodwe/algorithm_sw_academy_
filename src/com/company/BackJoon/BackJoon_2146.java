@@ -1,22 +1,23 @@
-package com.company;
+package com.company.BackJoon;
 
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class Main3   {
+
+//dfs 와 bfs의 결정적 차이는 수행할 때 사용 되는 최대 메모리!!!!!!!!!!!!
+
+
+public class BackJoon_2146   {
 
 
     static int answer = 99999999;
     static int [][] valueMap;
     static int [][] map;
     static int [][] dir = {{0,1},{0,-1},{1,0},{-1,0}};
-   // static boolean[][] visited;
+    // static boolean[][] visited;
     static int t;
 
 
@@ -24,24 +25,24 @@ public class Main3   {
 
 
 
-            for(int k=0; k<4; k++){
-                int nx = i + dir[k][0];
-                int ny = j + dir[k][1];
+        for(int k=0; k<4; k++){
+            int nx = i + dir[k][0];
+            int ny = j + dir[k][1];
 
-                if(nx>=0 && ny>=0 && nx <t && ny<t ){
-                    if(map[nx][ny] < value) {
-                        if(count < answer){
-                            answer = count;
-                        }
+            if(nx>=0 && ny>=0 && nx <t && ny<t ){
+                if(map[nx][ny] < value) {
+                    if(count < answer){
+                        answer = count;
                     }
-
-                    if(map[nx][ny] == 0 && valueMap[nx][ny] > valueMap[i][j]+1){
-                        valueMap[nx][ny] = count+1;
-                        bfs(nx,ny,value,count+1);
-                    }
-
                 }
+
+                if(map[nx][ny] == 0 && valueMap[nx][ny] > valueMap[i][j]+1){
+                    valueMap[nx][ny] = count+1;
+                    bfs(nx,ny,value,count+1);
+                }
+
             }
+        }
 
 
     }
@@ -64,18 +65,18 @@ public class Main3   {
     static void initbfs(int i , int j,int count ){
 
 
-            map[i][j] = count;
+        map[i][j] = count;
 
-            for(int k=0; k<4; k++){
-                int nx = i+dir[k][0];
-                int ny = j + dir[k][1];
+        for(int k=0; k<4; k++){
+            int nx = i+dir[k][0];
+            int ny = j + dir[k][1];
 
-                if(nx>=0 && ny>=0 && nx <t && ny<t ){
-                    if(map[nx][ny]==1){
-                        initbfs(nx,ny,count);
-                    }
+            if(nx>=0 && ny>=0 && nx <t && ny<t ){
+                if(map[nx][ny]==1){
+                    initbfs(nx,ny,count);
                 }
             }
+        }
 
 
     }
@@ -85,9 +86,9 @@ public class Main3   {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(bf.readLine(), " ");
 
-         t =Integer.parseInt(st.nextToken());
+        t =Integer.parseInt(st.nextToken());
 
-         map = new int [t][t];
+        map = new int [t][t];
         valueMap = new int [t][t];
         //visited = new boolean[t][t];
         for(int i =0; i<t; i++){
@@ -114,13 +115,13 @@ public class Main3   {
         for(int i =0; i<t; i++){
             System.out.println();
             for(int j =0 ; j<t; j++){
-               System.out.print(valueMap[i][j] +" ");
+                System.out.print(valueMap[i][j] +" ");
             }
         }
         System.out.println(answer);
 
 
 
-       }
+    }
 }
 
