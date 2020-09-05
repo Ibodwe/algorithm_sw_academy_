@@ -1,21 +1,24 @@
-    package com.company;
+package com.company.BackJoon;
 
 
-    import java.io.BufferedReader;
-    import java.io.InputStreamReader;
-    import java.util.Scanner;
-    import java.util.Stack;
-    import java.util.StringTokenizer;
+import java.util.Scanner;
+import java.util.Stack;
 
-    public class Main {
-
-        public static void main(String[] args) throws Exception {
+public class BackJoon_9734 {
 
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            Scanner sc = new Scanner(System.in);
+    /*
+    *   순환소수는 9 일반 소수는 0 으로 치환 하여서 분모로 만든 후 계산
+    *
+    *
+    * */
 
-            while(sc.hasNext()){
+    public static void main(String[] args) throws Exception {
+
+
+        Scanner sc = new Scanner(System.in);
+
+        while(sc.hasNext()){
 
 
             String test = sc.nextLine();
@@ -90,12 +93,12 @@
             }
 
             System.out.println(test+" = " + molecule +" / " + denominator);
-           // System.out.println(molecule);
-          //  System.out.println(denominator);
-
-            }
+            // System.out.println(molecule);
+            //  System.out.println(denominator);
 
         }
 
+    }
 
-        }
+
+}

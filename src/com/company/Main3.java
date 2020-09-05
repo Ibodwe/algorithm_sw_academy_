@@ -1,51 +1,34 @@
     package com.company;
 
-    import java.io.BufferedReader;
-    import java.io.IOException;
-    import java.io.InputStreamReader;
-    import java.util.Arrays;
-    import java.util.StringTokenizer;
 
     public class Main3 {
 
+        public static void main(String args[]) {
 
+            int num = 3;
+            int []dp = new int [100001];
+            int [] cards = {17};
 
-        public static void main(String args[]) throws IOException {
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            StringTokenizer st = new StringTokenizer(br.readLine());
-
-            int N = Integer.parseInt(st.nextToken());
-
-            int[] map = new int[N];
-            int[] dp = new int [N];
-            dp[0] = 1;
-
-            st = new StringTokenizer(br.readLine()," ");
-
-            for(int i=0; i< N ; i++){
-                map[i] = Integer.parseInt(st.nextToken());
+            for(int i =0; i<=num; i++){
+                dp[i] = 9999999;
             }
 
-            for(int i =0; i< N; i++){
-                int targetNum = map[i];
-                int maxNum = 0;
+            for(int i =0; i< cards.length; i++){
+                dp[cards[i]] =1 ;
+            }
 
-                for(int j =0; j < i; j++){
-                    //max 값 구하고
-                    if(map[j]<targetNum) {
-                        maxNum = Math.max(maxNum, dp[j]);
+            for(int i =1; i <= num; i++){
+                for(int j =0; j< cards.length; j++){
+                    if(i - cards[j] > 0 ){
+                        dp[i] = Math.min(dp[i-cards[j]] , dp[i]);
                     }
                 }
-                dp[i] = maxNum + 1;
+                dp[i]++;
             }
 
-            Arrays.sort(dp);
-
-            System.out.println(dp[0]);
-
-
-
+            for(int i =1; i<=num; i++){
+                System.out.println("i "+i+" " + dp[i]);
+            }
 
 
         }
