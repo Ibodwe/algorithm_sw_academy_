@@ -1,18 +1,17 @@
-    package com.company;
+package com.company;
 
 
-    import java.io.BufferedReader;
-    import java.io.InputStreamReader;
-    import java.util.StringTokenizer;
+import java.util.Scanner;
 
-    public class Main {
+public class Main {
 
-        static int [][] map;
-        static boolean [][] visitedMap;
-        static int m;
-        public static void main(String[] args) throws Exception {
+
+    public static void main(String[] args) throws Exception {
 
 
 
-        }
-        }
+    }
+}
+
+
+
