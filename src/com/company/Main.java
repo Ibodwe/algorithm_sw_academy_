@@ -1,11 +1,17 @@
-    package com.company;
+package com.company;
 
 
-    public class Main {
+import java.util.Scanner;
 
-        public static void main(String[] args) {
-
-        }
+public class Main {
 
 
-        }
+    public static void main(String[] args) throws Exception {
+
+
+
+    }
+}
+
+
+

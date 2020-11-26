@@ -1,56 +1,88 @@
 package com.company;
 
 
-import java.io.*;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.ParseException;
 
 
 public class Main2 {
 
 
-    public static void main(String[] args) throws IOException, ParseException {
+    static public long calMax(int i, long n, int[][] products ) {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int nubmer = Integer.parseInt(br.readLine());
+        int stock = products[i][0];
+        int cost = products[i][1];
+        int num  = products[i][2];
 
-        String [] base = br.readLine().split("[.]");
+        if (stock <= 0) {
+            return 0;
+        }
+        if (stock >= num ) {
 
-        int limit = base.length-1;
+            return cost * num ;
+        }
+        return stock * cost;
+    }
 
-        for(int i=1; i<nubmer;i ++){
-            String [] target = br.readLine().split("[.]");
+    static public long calValue(int i, long n, int[][] products ) {
 
-            int k =0;
+        int stock = products[i][0];
+        int cost = products[i][1];
+        int num  = products[i][2];
 
-            while(k < limit && k < target.length-1){
-                if(base[k].equals(target[k])){
-                    k++;
-                    continue;
-                }else{
-                    limit = Math.min(limit,k);
-                    break;
-                }
-
-            }
-            limit = Math.min(limit,k);
+        if (stock <= 0) {
+            return 0;
         }
 
-        StringBuilder sb = new StringBuilder();
-        if(limit<=1){
-            System.out.println("없음");
-        }else{
-            for(int i =0; i<limit;i++){
-                sb.append(base[i]);
-                if(i!=limit-1) {
-                    sb.append(".");
-                }
-            }
-            System.out.println(sb);
+        if (stock >= num * n) {
+            products[i][0] -= num*n;
+            return num * cost * n;
+        }
+        products[i][0] = 0;
+
+        return stock * cost;
+    }
+
+
+    public static void main(String[] args) {
+
+        long n = 3;
+        int[][] products = {{6, 5, 1}, {11, 3, 2},{7,10,3}};
+
+        // 며칠 동안 최대로 되는지 찾고 나머지는 그냥 값을 더해 주 면 됨..!
+        long answer = 0;
+        //가민히 나두면 얼마나 팔리는 지 먼저 check
+        for(int i =0; i<products.length; i++){
+            answer += calValue(i,n,products);
         }
 
+        for(int i =0; i< n; i++){
+
+            int storeProductIndex = 0;
+            long storeProductValue = 0;
+
+            for(int j=0; j<products.length; j++){
+                long temp = calMax(j,n,products);
+
+                if(storeProductValue < temp) {
+                    storeProductIndex = j;
+                    storeProductValue = temp;
+                }
+            }
+            answer += storeProductValue;
+
+            products[storeProductIndex][0] -= (storeProductValue/products[storeProductIndex][1]);
+        }
+
+        System.out.println(answer);
+
+
+
     }
-    }
+
+
+}
+
+
+
+
 
 
