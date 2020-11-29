@@ -35,9 +35,8 @@ public class selectionSort {
                 if(array[minNumIndex]>array[j]){
                     minNumIndex = j;
                 }
+
             }
-
-
 
             swap(i, minNumIndex, array);
 
