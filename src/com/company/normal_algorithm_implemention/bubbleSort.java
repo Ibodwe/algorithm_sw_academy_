@@ -6,7 +6,7 @@ public class bubbleSort {
 
     // bubble Sort --> 옆에 있는 숫자가 작다면 제일 뒤로 보내주는 방법으로 정렬
     // n(n-1 + n-2 + ...0)
-    // n * n(n-1)/2
+    //  n(n-1)/2
     // 즉 시간복잡도 : n^2 , 공간 복잡도 : n
 
    static public void swap(int a , int b , int [] array){
