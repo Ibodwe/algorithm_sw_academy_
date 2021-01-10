@@ -45,6 +45,8 @@ public class Algospot_LUNCHBOX {
            for(int j=0; j<t; j++){
                answer = Math.max(answer, heatTimer + arr[j][0] + arr[j][1]);
                heatTimer += arr[j][0];
+
+
            }
 
             System.out.println(answer);
